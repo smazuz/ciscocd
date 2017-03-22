@@ -12,3 +12,16 @@
     git:
       repo: https://github.com/smazuz/spring-petclinic.git
       dest: /home/ec2-user/petclinic
+  - name: copy YOUR maven to ~/
+    unarchive:
+      src: http://www-us.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+      dest: /home/ec2-user/
+  - name: download maven to ~/
+    get_url:
+      url: http://www-us.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+      dest: /home/ec2-user/
+  - name: unarchive maven 
+    unarchive:
+      src: /home/ec2-user/apache-maven-3.3.9-bin.tar.gz
+      dest: /home/ec2-user
+      creates: apache-maven-3.3.9
