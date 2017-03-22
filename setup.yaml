@@ -1,0 +1,14 @@
+- hosts: localhost
+  tasks:
+  - name: install GIT
+    become: yes
+    become_method: sudo
+    yum: name=git
+  - name: copy YOUR ciscocd to ~/ciscocd
+    git:
+      repo: https://github.com/smazuz/ciscocd.git
+      dest: /home/ec2-user/ciscocd
+  - name: copy YOUR petclinic to ~/petclinic
+    git:
+      repo: https://github.com/smazuz/spring-petclinic.git
+      dest: /home/ec2-user/petclinic
